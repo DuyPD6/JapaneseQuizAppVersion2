@@ -27,5 +27,12 @@
     <string name="next">Next</string>
     <string name="otp_description_text">/Code is sent to phone number: </string>
     <string name="otp_code_text">Code OTP</string>
-
+    <string name="title_activity_forget_password">ForgetPassword</string>
+    <string name="enter_email">Enter Email</string>reset_method
+    <string name="forget_password_detail">ForgetPassworDetail</string>
+    <string name="reset_method">Choose Reset Method</string>
+    <string name="mail_address">abcd@gmail.com</string>
+    <string name="using_sms">Using SMS Method</string>
+    <string name="sms_number">+84 999 999 999</string>
+    <string name="reset_method_detail">Select kind of method you want to reset your password</string>
 </resources>
