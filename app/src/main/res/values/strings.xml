@@ -25,4 +25,7 @@
     <string name="phone_number">Phone Number</string>
     <string name="password">Password</string>
     <string name="next">Next</string>
+    <string name="otp_description_text">/Code is sent to phone number: </string>
+    <string name="otp_code_text">Code OTP</string>
+
 </resources>
