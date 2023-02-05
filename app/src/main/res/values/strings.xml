@@ -34,5 +34,8 @@
     <string name="mail_address">abcd@gmail.com</string>
     <string name="using_sms">Using SMS Method</string>
     <string name="sms_number">+84 999 999 999</string>
+    <string name="new_credentials">new credentials</string>
+    <string name="password_updated">Password Updated</string>
+    <string name="new_credentials_detail">Verified successfully \nSet you new password</string>
     <string name="reset_method_detail">Select kind of method you want to reset your password</string>
 </resources>
