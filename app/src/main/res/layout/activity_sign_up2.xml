@@ -47,10 +47,10 @@
                 android:text="Choose Gender"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_18ssp"
-
-                ></TextView>
+                android:transitionName="transition_slide_text"></TextView>
 
             <RadioGroup
+                android:id="@+id/radio_group"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -58,19 +58,19 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Male" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Female" />
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/others"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Other" />
@@ -91,10 +91,12 @@
                 android:text="Choose your date of birth"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_18ssp"
+                android:transitionName="transition_slide_text"
 
                 ></TextView>
 
             <DatePicker
+                android:id="@+id/date_picker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"
@@ -109,7 +111,7 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:background="@color/black"
             android:elevation="@dimen/_5sdp"
-            android:onClick="callNextSignupScreen"
+            android:onClick="callSignup3Screen"
             android:text="@string/next"
             android:textColor="@color/white"
             android:transitionName="transition_next_btn">

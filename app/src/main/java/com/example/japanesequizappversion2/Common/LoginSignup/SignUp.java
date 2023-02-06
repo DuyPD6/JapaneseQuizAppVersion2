@@ -39,6 +39,11 @@ public class SignUp extends AppCompatActivity {
     }
 
     public void callNextSignupScreen(View view) {
+
+        if (!validateEmail() | !validatePassword() | !validateUsername() | !validateFullname()) {
+            return;
+        }
+
         Intent intent = new Intent(getApplicationContext(), SignUp2.class);
 
         Pair[] pairs = new Pair[4];
@@ -54,7 +59,6 @@ public class SignUp extends AppCompatActivity {
 
     private boolean validateFullname() {
         String val = fullName.getEditText().getText().toString().trim();
-
         if (val.isEmpty()) {
             fullName.setError("Name can not be empty");
             return false;
@@ -63,5 +67,66 @@ public class SignUp extends AppCompatActivity {
             fullName.setErrorEnabled(false);
             return true;
         }
+    }
+
+    private boolean validateUsername() {
+        String val = userName.getEditText().getText().toString().trim();
+        String checkSpaces = "\\A\\w{1,20}\\z";
+        if (val.isEmpty()) {
+            userName.setError("Name can not be empty");
+            return false;
+        } else if (val.length() > 20) {
+            userName.setError("Username cannot longer than 20 characters");
+            return false;
+        } else if (!val.matches(checkSpaces)) {
+            userName.setError("You cannot use white spaces");
+            return false;
+        } else {
+            userName.setError(null);
+            userName.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean validateEmail() {
+        String val = email.getEditText().getText().toString().trim();
+        String checkEmail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if (val.isEmpty()) {
+            email.setError("Email can not be empty");
+            return false;
+        } else if (!val.matches(checkEmail)) {
+            email.setError("Invalid email!");
+            return false;
+        } else {
+            email.setError(null);
+            email.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean validatePassword() {
+        String val = passWord.getEditText().getText().toString().trim();
+        String checkPassword = "^+" +
+                "(?=.*[a-zA-Z])" +  //any letter
+                "(?=.*[@])" +   //1 @
+                "(?=\\S+$)" +   //no white spaces
+                ".{4,}" +       //min 4 characters
+                "$";
+        if (val.isEmpty()) {
+            email.setError("Email can not be empty");
+            return false;
+        } else if (!val.matches(checkPassword)) {
+            passWord.setError("Pasword must have at least 1 special character and no spaces!");
+            return false;
+        } else {
+            email.setError(null);
+            email.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    public void callLoginFromSignUp(View view) {
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        finish();
     }
 }
