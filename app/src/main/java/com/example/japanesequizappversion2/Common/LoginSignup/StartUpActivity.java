@@ -23,7 +23,7 @@ public class StartUpActivity extends AppCompatActivity {
     public void callLoginActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View, String>(findViewById(R.id.btn_login), "transition_login");
+        pairs[0] = new Pair<View, String>(findViewById(R.id.btn_startup_login), "transition_login");
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StartUpActivity.this, pairs);
         startActivity(intent, options.toBundle());
     }
@@ -31,7 +31,7 @@ public class StartUpActivity extends AppCompatActivity {
     public void callSignupActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), SignUp.class);
         Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View, String>(findViewById(R.id.btn_signup), "transition_signup");
+        pairs[0] = new Pair<View, String>(findViewById(R.id.btn_startup_signup), "transition_signup");
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StartUpActivity.this, pairs);
         startActivity(intent, options.toBundle());
     }

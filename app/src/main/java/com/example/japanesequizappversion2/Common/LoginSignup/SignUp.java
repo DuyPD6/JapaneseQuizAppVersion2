@@ -27,15 +27,15 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sign_up);
-        btnBack = findViewById(R.id.btn_signup_back);
-        btnNext = findViewById(R.id.btn_signup_next);
-        btnLogin = findViewById(R.id.btn_signup_login);
+        btnBack = findViewById(R.id.btn_signup1_back);
+        btnNext = findViewById(R.id.btn_signup1_next);
+        btnLogin = findViewById(R.id.btn_signup1_login);
         textTitle = findViewById(R.id.text_signup_title);
 
-        fullName = findViewById(R.id.signup_fullname);
-        email = findViewById(R.id.signup_email);
-        userName = findViewById(R.id.signup_username);
-        passWord = findViewById(R.id.signup_password);
+        fullName = findViewById(R.id.signup1_fullname);
+        email = findViewById(R.id.signup1_email);
+        userName = findViewById(R.id.signup1_username);
+        passWord = findViewById(R.id.signup1_password);
     }
 
     public void callNextSignupScreen(View view) {
@@ -73,7 +73,7 @@ public class SignUp extends AppCompatActivity {
         String val = userName.getEditText().getText().toString().trim();
         String checkSpaces = "\\A\\w{1,20}\\z";
         if (val.isEmpty()) {
-            userName.setError("Name can not be empty");
+            userName.setError("Username can not be empty");
             return false;
         } else if (val.length() > 20) {
             userName.setError("Username cannot longer than 20 characters");
@@ -105,27 +105,31 @@ public class SignUp extends AppCompatActivity {
     }
 
     private boolean validatePassword() {
-        String val = passWord.getEditText().getText().toString().trim();
-        String checkPassword = "^+" +
-                "(?=.*[a-zA-Z])" +  //any letter
-                "(?=.*[@])" +   //1 @
-                "(?=\\S+$)" +   //no white spaces
-                ".{4,}" +       //min 4 characters
-                "$";
-        if (val.isEmpty()) {
-            email.setError("Email can not be empty");
-            return false;
-        } else if (!val.matches(checkPassword)) {
-            passWord.setError("Pasword must have at least 1 special character and no spaces!");
-            return false;
-        } else {
-            email.setError(null);
-            email.setErrorEnabled(false);
-            return true;
-        }
+//        String val = passWord.getEditText().getText().toString().trim();
+//        String checkPassword = "^" +
+//                //"(?=.*[0-9])" +         //at least 1 digit
+//                //"(?=.*[a-z])" +         //at least 1 lower case letter
+//                //"(?=.*[A-Z])" +         //at least 1 upper case letter
+//                "(?=.*[a-zA-Z])" +      //any letter
+//                //"(?=.*[@#$%^&+=])" +    //at least 1 special character
+////                "(?=S+$)" +           //no white spaces
+//                ".{4,}" +               //at least 4 characters
+//                "$";
+//        if (val.isEmpty()) {
+//            passWord.setError("Password can not be empty");
+//            return false;
+//        } else if (!val.matches(checkPassword)) {
+//            passWord.setError("Password must have more than 4 characters!");
+//            return false;
+//        } else {
+//            passWord.setError(null);
+//            passWord.setErrorEnabled(false);
+//            return true;
+//        }
+        return true;
     }
 
-    public void callLoginFromSignUp(View view) {
+    public void callLoginFromSignUp1(View view) {
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         finish();
     }

@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View, String>(findViewById(R.id.btn_login), "transition_login");
+        pairs[0] = new Pair<View, String>(findViewById(R.id.btn_login_login), "transition_login");
 
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
@@ -41,14 +41,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    public void callSignUpScreen(View view) {
+    public void callSignUpFromLogin(View view) {
 
 
         Intent intent = new Intent(getApplicationContext(), SignUp.class);
 
 
         Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View, String>(findViewById(R.id.btn_signup), "transition_signup");
+        pairs[0] = new Pair<View, String>(findViewById(R.id.btn_signup_login), "transition_signup");
 
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {

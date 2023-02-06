@@ -33,8 +33,8 @@ public class SignUp2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sign_up2);
-        btnBack = findViewById(R.id.btn_signup_back);
-        btnNext = findViewById(R.id.btn_signup_next);
+        btnBack = findViewById(R.id.btn_signup2_back);
+        btnNext = findViewById(R.id.btn_signup2_next);
         btnLogin = findViewById(R.id.btn_signup_login);
         radioGroup = findViewById(R.id.radio_group);
         datePicker = findViewById(R.id.date_picker);
@@ -54,7 +54,7 @@ public class SignUp2 extends AppCompatActivity {
 
         String _date = day + "/" + month + "/" + year;
 
-        Intent intent = new Intent(getApplicationContext(), SignUp2.class);
+        Intent intent = new Intent(getApplicationContext(), SignUp3.class);
 
         Pair[] pairs = new Pair[4];
 
@@ -62,7 +62,7 @@ public class SignUp2 extends AppCompatActivity {
         pairs[1] = new Pair<View, String>(btnNext, "transition_login_btn");
         pairs[2] = new Pair<View, String>(btnLogin, "transition_login_btn");
         pairs[3] = new Pair<View, String>(textTitle, "transition_title_text");
-//        pairs[4] = new Pair<View, String>(textSlide, "transition_slide_text");
+
 
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp2.this, pairs);
         startActivity(intent, options.toBundle());

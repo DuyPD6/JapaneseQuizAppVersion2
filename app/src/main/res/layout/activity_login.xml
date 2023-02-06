@@ -110,7 +110,7 @@
             </RelativeLayout>
 
             <Button
-                android:id="@+id/btn_login"
+                android:id="@+id/btn_login_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -120,7 +120,7 @@
                 android:textColor="@color/white"></Button>
 
             <Button
-                android:id="@+id/btn_signup"
+                android:id="@+id/btn_signup_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
