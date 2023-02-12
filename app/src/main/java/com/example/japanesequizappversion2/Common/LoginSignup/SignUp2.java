@@ -23,7 +23,7 @@ import java.util.Calendar;
 public class SignUp2 extends AppCompatActivity {
     ImageView btnBack;
     Button btnNext, btnLogin;
-    TextView textTitle, textSlide;
+    TextView textTitle;
     RadioGroup radioGroup;
     RadioButton selectedGender;
     DatePicker datePicker;
@@ -46,15 +46,26 @@ public class SignUp2 extends AppCompatActivity {
             return;
         }
         selectedGender = findViewById(radioGroup.getCheckedRadioButtonId());
-        String _gender = selectedGender.getText().toString();
 
         int day = datePicker.getDayOfMonth();
         int month = datePicker.getMonth();
         int year = datePicker.getYear();
 
+        String _gender = selectedGender.getText().toString();
         String _date = day + "/" + month + "/" + year;
+        String _fullName = getIntent().getStringExtra("fullName");
+        String _email = getIntent().getStringExtra("email");
+        String _userName = getIntent().getStringExtra("userName");
+        String _passWord = getIntent().getStringExtra("passWord");
 
         Intent intent = new Intent(getApplicationContext(), SignUp3.class);
+
+        intent.putExtra("fullName", _fullName);
+        intent.putExtra("email", _email);
+        intent.putExtra("userName", _userName);
+        intent.putExtra("passWord", _passWord);
+        intent.putExtra("gender", _gender);
+        intent.putExtra("date", _date);
 
         Pair[] pairs = new Pair[4];
 
@@ -78,13 +89,13 @@ public class SignUp2 extends AppCompatActivity {
     }
 
     private boolean validateDate() {
-        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        int userAge = datePicker.getYear();
-        int isAgeValid = currentYear - userAge;
-        if (isAgeValid < 14) {
-            Toast.makeText(this, "You are not eligible to apply", Toast.LENGTH_SHORT).show();
-            return false;
-        } else
-            return true;
+//        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+//        int userAge = datePicker.getYear();
+//        int isAgeValid = currentYear - userAge;
+//        if (isAgeValid < 14) {
+//            Toast.makeText(this, "You are too young", Toast.LENGTH_SHORT).show();
+//            return false;
+//        } else
+        return true;
     }
 }

@@ -2,9 +2,11 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollview_signup3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/_30sdp"
+    android:transitionName="transition_OTP_screen"
     tools:context=".Common.LoginSignup.SignUp3">
 
     <LinearLayout
@@ -42,6 +44,7 @@
             android:orientation="vertical">
 
             <com.hbb20.CountryCodePicker
+                android:id="@+id/country_code_picker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/black_border"
@@ -52,6 +55,7 @@
                 app:ccp_showNameCode="true"></com.hbb20.CountryCodePicker>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/signup_phone_number"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,7 +87,7 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:background="@color/black"
             android:elevation="@dimen/_5sdp"
-            android:onClick="callNextSignupScreen"
+            android:onClick="callVerifyOTPScreen"
             android:text="@string/next"
             android:textColor="@color/white"
             android:transitionName="transition_next_btn">
@@ -97,6 +101,7 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:background="@color/black"
             android:elevation="@dimen/_5sdp"
+            android:onClick="callVerifyOTPScreen"
             android:text="@string/login"
             android:textColor="@color/white"
             android:transitionName="transition_login_btn"></Button>

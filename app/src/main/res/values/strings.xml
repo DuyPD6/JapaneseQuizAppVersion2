@@ -25,7 +25,7 @@
     <string name="phone_number">Phone Number</string>
     <string name="password">Password</string>
     <string name="next">Next</string>
-    <string name="otp_description_text">/Code is sent to phone number: </string>
+    <string name="otp_description_text">Code is sent to your phone: </string>
     <string name="otp_code_text">Code OTP</string>
     <string name="title_activity_forget_password">ForgetPassword</string>
     <string name="enter_email">Enter Email</string>reset_method

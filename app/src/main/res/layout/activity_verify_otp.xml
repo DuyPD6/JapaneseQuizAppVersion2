@@ -46,6 +46,7 @@
             android:textSize="@dimen/_16sdp"></TextView>
 
         <com.chaos.view.PinView
+            android:id="@+id/pin_view"
             style="@style/PinWidget.PinView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,9 +57,9 @@
             android:itemBackground="@color/white"
             app:hideLineWhenFilled="true"
             app:itemCount="6"
-            app:itemHeight="@dimen/_40sdp"
+            app:itemHeight="@dimen/_30sdp"
             app:itemRadius="@dimen/_5sdp"
-            app:itemWidth="@dimen/_40sdp"
+            app:itemWidth="@dimen/_30sdp"
             app:lineColor="@color/black">
 
         </com.chaos.view.PinView>
@@ -68,6 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_30sdp"
             android:background="@color/design_default_color_primary"
+            android:onClick="callNextScreenFromOTP"
             android:text="Verify Code"
             android:textColor="@color/black">
 
