@@ -46,7 +46,7 @@ public class VerifyOTP extends AppCompatActivity {
         passWord = getIntent().getStringExtra("passWord");
         date = getIntent().getStringExtra("date");
         gender = getIntent().getStringExtra("gender");
-        phoneNo = getIntent().getStringExtra("phoneNo"); //5:55
+        phoneNo = getIntent().getStringExtra("phoneNo");
 
         sendVerificationCodeToUser(phoneNo);
     }

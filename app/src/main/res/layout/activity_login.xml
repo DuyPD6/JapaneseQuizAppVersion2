@@ -39,9 +39,9 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/username_login"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:id="@+id/username_login"
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_username"
                 app:boxStrokeColor="@color/black"
@@ -64,9 +64,9 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_login"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:id="@+id/password_login"
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_password"
                 app:boxStrokeColor="@color/black"
@@ -108,7 +108,25 @@
                     android:layout_alignParentRight="true"
                     android:backgroundTint="@color/black"
                     android:onClick="callForgetPassword"
-                    android:text="@string/forget_password"></Button>
+                    android:text="@string/forget_password">
+
+                </Button>
+
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    android:padding="@dimen/_20sdp">-->
+
+<!--                    <ProgressBar-->
+<!--                        android:layout_width="@dimen/_30sdp"-->
+<!--                        android:layout_height="@dimen/_30sdp"-->
+<!--                        android:layout_centerInParent="true"-->
+<!--                        android:background="@drawable/white_circle"-->
+<!--                        android:elevation="@dimen/_8sdp">-->
+
+<!--                    </ProgressBar>-->
+<!--                </RelativeLayout>-->
             </RelativeLayout>
 
             <Button
