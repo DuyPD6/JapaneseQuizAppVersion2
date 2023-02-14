@@ -45,7 +45,7 @@ public class SessionManager {
         userData.put(KEY_FULLNAME, usersSession.getString(KEY_FULLNAME, null));
         userData.put(KEY_USERNAME, usersSession.getString(KEY_USERNAME, null));
         userData.put(KEY_EMAIL, usersSession.getString(KEY_EMAIL, null));
-        userData.put(KEY_PHONENUMBER, usersSession.getString(KEY_FULLNAME, null));
+        userData.put(KEY_PHONENUMBER, usersSession.getString(KEY_PHONENUMBER, null));
         userData.put(KEY_PASSWORD, usersSession.getString(KEY_PASSWORD, null));
         userData.put(KEY_DATE, usersSession.getString(KEY_DATE, null));
         userData.put(KEY_GENDER, usersSession.getString(KEY_GENDER, null));
