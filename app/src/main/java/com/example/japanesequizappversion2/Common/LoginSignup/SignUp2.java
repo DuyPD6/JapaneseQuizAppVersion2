@@ -89,13 +89,13 @@ public class SignUp2 extends AppCompatActivity {
     }
 
     private boolean validateDate() {
-//        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-//        int userAge = datePicker.getYear();
-//        int isAgeValid = currentYear - userAge;
-//        if (isAgeValid < 14) {
-//            Toast.makeText(this, "You are too young", Toast.LENGTH_SHORT).show();
-//            return false;
-//        } else
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        int userAge = datePicker.getYear();
+        int isAgeValid = currentYear - userAge;
+        if (isAgeValid < 1) {
+            Toast.makeText(this, "You are too young", Toast.LENGTH_SHORT).show();
+            return false;
+        } else
         return true;
     }
 }

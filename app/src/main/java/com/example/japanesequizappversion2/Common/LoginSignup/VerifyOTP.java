@@ -32,7 +32,7 @@ public class VerifyOTP extends AppCompatActivity {
     PinView pinFromUser;
     String codeBySystem;
     private FirebaseAuth mAuth;
-    private String fullName, email, userName, passWord, date, gender, phoneNo;
+    private String fullName, email, userName, passWord, date, gender, phoneNo, whatToDo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,7 @@ public class VerifyOTP extends AppCompatActivity {
         setContentView(R.layout.activity_verify_otp);
         pinFromUser = findViewById(R.id.pin_view);
         mAuth = FirebaseAuth.getInstance();
+
         fullName = getIntent().getStringExtra("fullName");
         email = getIntent().getStringExtra("email");
         userName = getIntent().getStringExtra("userName");
@@ -47,6 +48,7 @@ public class VerifyOTP extends AppCompatActivity {
         date = getIntent().getStringExtra("date");
         gender = getIntent().getStringExtra("gender");
         phoneNo = getIntent().getStringExtra("phoneNo");
+        whatToDo = getIntent().getStringExtra("whatToDo");
 
         sendVerificationCodeToUser(phoneNo);
     }
@@ -97,7 +99,11 @@ public class VerifyOTP extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(VerifyOTP.this, "Verification is completed", Toast.LENGTH_SHORT);
-                            storeNewUserData();
+                            if (whatToDo.equals("updatePassword")) {
+                                updateOldUsersPassword();
+                            } else {
+                                storeNewUserData();
+                            }
                         } else {
 
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
@@ -107,6 +113,14 @@ public class VerifyOTP extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void updateOldUsersPassword() {
+        Intent intent = new Intent(getApplicationContext(), ResetPassword.class);
+        intent.putExtra("userName", userName);
+        intent.putExtra("phoneNo", phoneNo);
+        startActivity(intent);
+        finish();
     }
 
     private void storeNewUserData() {

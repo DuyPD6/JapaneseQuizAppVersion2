@@ -44,7 +44,7 @@
             android:orientation="vertical">
 
             <com.hbb20.CountryCodePicker
-                android:id="@+id/country_code_picker"
+                android:id="@+id/country_code_picker_signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/black_border"
@@ -52,7 +52,9 @@
                 app:ccp_defaultNameCode="VN"
                 app:ccp_showFlag="true"
                 app:ccp_showFullName="true"
-                app:ccp_showNameCode="true"></com.hbb20.CountryCodePicker>
+                app:ccp_showNameCode="true">
+
+            </com.hbb20.CountryCodePicker>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/signup_phone_number"
@@ -77,6 +79,7 @@
                 </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
+            
 
         </LinearLayout>
 

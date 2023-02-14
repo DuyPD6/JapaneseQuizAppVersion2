@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ScrollView;
 
 import com.example.japanesequizappversion2.R;
@@ -26,7 +27,7 @@ public class SignUp3 extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up3);
 
         scrollView = findViewById(R.id.scrollview_signup3);
-        countryCodePicker = findViewById(R.id.country_code_picker);
+        countryCodePicker = findViewById(R.id.country_code_picker_signup);
         phoneNumber = findViewById(R.id.signup_phone_number);
     }
 
@@ -41,12 +42,14 @@ public class SignUp3 extends AppCompatActivity {
         String _date = getIntent().getStringExtra("date");
         String _gender = getIntent().getStringExtra("gender");
 
-//        String _getPhoneNumber = phoneNumber.getEditText().getText().toString().trim();
-//        if (_getPhoneNumber.charAt(0) == '0') {
-//            _getPhoneNumber = _getPhoneNumber.substring(1);
-//        }
-//        final String _phoneNo = countryCodePicker.getFullNumberWithPlus() + _getPhoneNumber;
-        final String _phoneNo = "+84365614999";
+        String _getPhoneNumber = phoneNumber.getEditText().getText().toString().trim();
+        if (_getPhoneNumber.charAt(0) == '0') {
+            _getPhoneNumber = _getPhoneNumber.substring(1);
+        }
+        String carrierNumber =countryCodePicker.getSelectedCountryCodeWithPlus();
+        final String _phoneNo = carrierNumber + _getPhoneNumber;
+
+
 
         Intent intent = new Intent(getApplicationContext(), VerifyOTP.class);
         intent.putExtra("fullName", _fullName);
@@ -64,20 +67,18 @@ public class SignUp3 extends AppCompatActivity {
     }
 
     private boolean validatePhoneNumber() {
-//        String val = phoneNumber.getEditText().getText().toString().trim();
-//        String checkspaces = "\\Aw{1,20}z";
-////        String checkspaces = "^\\d{9,11}$";
-//        if (val.isEmpty()) {
-//            phoneNumber.setError("Enter valid phone number");
-//            return false;
-//        } else if (!val.matches(checkspaces)) {
-//            phoneNumber.setError("No White spaces are allowed!");
-//            return false;
-//        } else {
-//            phoneNumber.setError(null);
-//            phoneNumber.setErrorEnabled(false);
-//            return true;
-//        }
-        return true;
+        String val = phoneNumber.getEditText().getText().toString().trim();
+        String checkspaces = "^[0-9]{9,11}$";
+        if (val.isEmpty()) {
+            phoneNumber.setError("Enter valid phone number");
+            return false;
+        } else if (!val.matches(checkspaces)) {
+            phoneNumber.setError("No White spaces are allowed!");
+            return false;
+        } else {
+            phoneNumber.setError(null);
+            phoneNumber.setErrorEnabled(false);
+            return true;
+        }
     }
 }
