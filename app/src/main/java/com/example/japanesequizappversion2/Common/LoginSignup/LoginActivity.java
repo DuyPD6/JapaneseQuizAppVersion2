@@ -13,6 +13,8 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.japanesequizappversion2.Database.CheckInternet;
+import com.example.japanesequizappversion2.Database.SessionManager;
+import com.example.japanesequizappversion2.MainScreen.MainActivity;
 import com.example.japanesequizappversion2.R;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
@@ -63,6 +65,11 @@ public class LoginActivity extends AppCompatActivity {
                         String _email = snapshot.child(_userName).child("email").getValue(String.class);
                         String _phoneNo = snapshot.child(_userName).child("phoneNo").getValue(String.class);
                         String _dateofBirth = snapshot.child(_userName).child("date").getValue(String.class);
+                        String _gender = snapshot.child(_userName).child("gender").getValue(String.class);
+
+                        SessionManager sessionManager = new SessionManager(LoginActivity.this);
+                        sessionManager.createLoginSession(_fullname, _userName, _email, _phoneNo, _passWord, _dateofBirth, _gender);
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
                         Toast.makeText(LoginActivity.this, _fullname + "\n" + _phoneNo + "\n" + _email + "\n" + _dateofBirth + "\n", Toast.LENGTH_SHORT).show();
                     } else {
