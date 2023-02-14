@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.ScrollView;
 
 import com.example.japanesequizappversion2.R;
@@ -46,9 +45,8 @@ public class SignUp3 extends AppCompatActivity {
         if (_getPhoneNumber.charAt(0) == '0') {
             _getPhoneNumber = _getPhoneNumber.substring(1);
         }
-        String carrierNumber =countryCodePicker.getSelectedCountryCodeWithPlus();
+        String carrierNumber = countryCodePicker.getSelectedCountryCodeWithPlus();
         final String _phoneNo = carrierNumber + _getPhoneNumber;
-
 
 
         Intent intent = new Intent(getApplicationContext(), VerifyOTP.class);

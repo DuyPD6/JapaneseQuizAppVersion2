@@ -3,6 +3,7 @@ package com.example.japanesequizappversion2.Common.LoginSignup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.provider.Settings;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
+
 import com.example.japanesequizappversion2.Database.CheckInternet;
 import com.example.japanesequizappversion2.R;
 import com.google.android.material.textfield.TextInputLayout;
