@@ -9,7 +9,8 @@ public class SessionManager {
     SharedPreferences usersSession;
     SharedPreferences.Editor editor;
     Context context;
-
+    public static final String SESSION_USERSESSION = "userLoginSession";
+    public static final String SESSION_REMEMBERME = "rememberMe";
     private static final String IS_LOGIN = "IsLoggedIn";
 
     public static final String KEY_FULLNAME = "fullName";
@@ -20,9 +21,13 @@ public class SessionManager {
     public static final String KEY_DATE = "date";
     public static final String KEY_GENDER = "gender";
 
-    public SessionManager(Context _context) {
+    private static final String IS_REMEMBERME = "IsRememberMe";
+    private static final String KEY_SESSIONUSERNAME = "userName";
+    private static final String KEY_SESSIONPASSWORD = "passWord";
+
+    public SessionManager(Context _context, String sessionName) {
         context = _context;
-        usersSession = context.getSharedPreferences("userLoginSession", Context.MODE_PRIVATE);
+        usersSession = context.getSharedPreferences(sessionName, Context.MODE_PRIVATE);
         editor = usersSession.edit();
     }
 
@@ -64,5 +69,29 @@ public class SessionManager {
     public void logoutUserFromSession() {
         editor.clear();
         editor.commit();
+    }
+
+    public void createRememberMeSession(String userName, String passWord) {
+        editor.putBoolean(IS_REMEMBERME, true);
+        editor.putString(KEY_SESSIONUSERNAME, userName);
+        editor.putString(KEY_SESSIONPASSWORD, passWord);
+
+        editor.commit();
+    }
+
+    public HashMap<String, String> getRememberMesDetailFromSession() {
+        HashMap<String, String> userData = new HashMap<String, String>();
+        userData.put(KEY_SESSIONUSERNAME, usersSession.getString(KEY_SESSIONUSERNAME, null));
+        userData.put(KEY_SESSIONPASSWORD, usersSession.getString(KEY_SESSIONPASSWORD, null));
+
+        return userData;
+    }
+
+    public boolean checkRememberMe() {
+        if (usersSession.getBoolean(IS_REMEMBERME, false)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

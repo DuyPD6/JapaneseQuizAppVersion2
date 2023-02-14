@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TextView textView = findViewById(R.id.textView8);
 
-        SessionManager sessionManager = new SessionManager(this);
+        SessionManager sessionManager = new SessionManager(MainActivity.this, SessionManager.SESSION_USERSESSION);
         HashMap<String, String> usersDetails = sessionManager.getUsersDetailFromSession();
 
         String fullName = usersDetails.get(SessionManager.KEY_FULLNAME);

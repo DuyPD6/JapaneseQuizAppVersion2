@@ -53,6 +53,7 @@
                 app:startIconTint="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUserName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="text"
@@ -78,6 +79,7 @@
                 app:startIconTint="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassWord"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
@@ -94,6 +96,7 @@
                 android:layout_marginTop="@dimen/_10sdp">
 
                 <CheckBox
+                    android:id="@+id/remember_me"
                     style="@style/Widget.AppCompat.CompoundButton.CheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -10,12 +10,14 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.example.japanesequizappversion2.Database.CheckInternet;
 import com.example.japanesequizappversion2.Database.SessionManager;
 import com.example.japanesequizappversion2.MainScreen.MainActivity;
 import com.example.japanesequizappversion2.R;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,9 +25,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 
 public class LoginActivity extends AppCompatActivity {
     TextInputLayout userName, passWord;
+    TextInputEditText etUserName, etPassWord;
+    CheckBox rememberMe;
 //    RelativeLayout progressBar;
 
     @Override
@@ -35,6 +41,20 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         userName = findViewById(R.id.username_login);
         passWord = findViewById(R.id.password_login);
+        rememberMe = findViewById(R.id.remember_me);
+        etUserName = findViewById(R.id.etUserName);
+        etPassWord = findViewById(R.id.etPassWord);
+
+        //check if username and password is already saved in shared preferences
+        SessionManager sessionManager = new SessionManager(LoginActivity.this, SessionManager.SESSION_REMEMBERME);
+        if (sessionManager.checkRememberMe()) {
+            HashMap<String, String> rememberMeDetals = sessionManager.getRememberMesDetailFromSession();
+            etUserName.setText(rememberMeDetals.get(SessionManager.KEY_USERNAME));
+            etPassWord.setText(rememberMeDetals.get(SessionManager.KEY_PASSWORD));
+        } else {
+            etUserName.setText("");
+            etPassWord.setText("");
+        }
     }
 
     public void letTheUserLoggedIn(View view) {
@@ -48,6 +68,14 @@ public class LoginActivity extends AppCompatActivity {
 //        progressBar.setVisibility(View.VISIBLE);
         String _userName = userName.getEditText().getText().toString();
         String _passWord = passWord.getEditText().getText().toString();
+
+        if (rememberMe.isChecked()) {
+            SessionManager sessionManager = new SessionManager(LoginActivity.this, SessionManager.SESSION_REMEMBERME);
+            sessionManager.createRememberMeSession(_userName, _passWord);
+        } else {
+            SessionManager sessionManager = new SessionManager(LoginActivity.this, SessionManager.SESSION_REMEMBERME);
+            sessionManager.createRememberMeSession("", "");
+        }
         Query checkUser = FirebaseDatabase.getInstance().getReference("Users").orderByChild("userName").equalTo(_userName);
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -67,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                         String _dateofBirth = snapshot.child(_userName).child("date").getValue(String.class);
                         String _gender = snapshot.child(_userName).child("gender").getValue(String.class);
 
-                        SessionManager sessionManager = new SessionManager(LoginActivity.this);
+                        SessionManager sessionManager = new SessionManager(LoginActivity.this, SessionManager.SESSION_USERSESSION);
                         sessionManager.createLoginSession(_fullname, _userName, _email, _phoneNo, _passWord, _dateofBirth, _gender);
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
