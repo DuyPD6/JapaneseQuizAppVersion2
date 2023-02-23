@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Learning Japanese Application</string>
+    <string name="app_name">日本語学習アプリ</string>
     <string name="title_activity_login">ログイン</string>
     <string name="prompt_email">Eメール</string>
     <string name="prompt_password">パスワード</string>
@@ -18,7 +18,7 @@
     <string name="create_account">アカウントを作成する</string>
     <string name="app_slogan">日本語はやさしい</string>
     <string name="app_heading">Japanese</string>
-    <string name="sign_up">Sign Up</string>
+    <string name="sign_up">サインアップ</string>
     <string name="recognize">認識</string>
     <string name="clear">クリア</string>
     <string name="about_us">About Us</string>
@@ -50,4 +50,7 @@
     <string name="japanese_3">Japanese 3</string>
     <string name="do_exams">試験を行う</string>
     <string name="verify_code">コードを確認する</string>
+    <string name="vietnamese">Tiếng Việt</string>
+    <string name="english">English</string>
+    <string name="japanese">日本</string>
 </resources>

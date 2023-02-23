@@ -1,15 +1,19 @@
 package com.example.japanesequizappversion2.Common.LoginSignup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.japanesequizappversion2.R;
+
+import java.util.Locale;
 
 public class StartUpActivity extends AppCompatActivity {
 
@@ -34,5 +38,28 @@ public class StartUpActivity extends AppCompatActivity {
         pairs[0] = new Pair<View, String>(findViewById(R.id.btn_startup_signup), "transition_signup");
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StartUpActivity.this, pairs);
         startActivity(intent, options.toBundle());
+    }
+
+    public void btn_japanese(View view) {
+        setLocale("ja");
+        recreate();
+    }
+
+    public void btn_english(View view) {
+        setLocale("en");
+        recreate();
+    }
+    public void btn_vietnamese(View view) {
+        setLocale("vi");
+        recreate();
+    }
+    private void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Configuration config = getResources().getConfiguration();
+        config.locale = locale;
+        getResources().updateConfiguration(config, null);
+        SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
+        editor.putString("My_Lang", lang);
+        editor.apply();
     }
 }

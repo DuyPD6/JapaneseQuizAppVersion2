@@ -21,7 +21,7 @@
     <string name="sign_up">Đăng ký</string>
     <string name="recognize">Nhận diện</string>
     <string name="clear">Xóa</string>
-    <string name="about_us">Vể chúng tôi</string>
+    <string name="about_us">私達について</string>
     <string name="full_name">Tên đầy đủ</string>
     <string name="user_name">Tên người dùng</string>
     <string name="email">Email</string>
@@ -50,4 +50,7 @@
     <string name="japanese_3">Japanese 3</string>
     <string name="do_exams">Làm bài thi</string>
     <string name="verify_code">Xác nhận mã</string>
+    <string name="vietnamese">Tiếng Việt</string>
+    <string name="english">English</string>
+    <string name="japanese">日本</string>
 </resources>
