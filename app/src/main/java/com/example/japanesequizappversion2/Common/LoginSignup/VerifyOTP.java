@@ -1,12 +1,12 @@
 package com.example.japanesequizappversion2.Common.LoginSignup;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.chaos.view.PinView;
 import com.example.japanesequizappversion2.Model.User;
@@ -121,7 +121,7 @@ public class VerifyOTP extends AppCompatActivity {
         DatabaseReference reference = rootNode.getReference("Users");
         User user = new User(fullName, userName, email, phoneNo, passWord, date, gender);
         reference.child(userName).setValue(user);
-        startActivity(new Intent(getApplicationContext(), StartUpActivity.class));
+        startActivity(new Intent(getApplicationContext(), ResetPasswordSuccessfully.class));
         finish();
     }
 
@@ -133,4 +133,7 @@ public class VerifyOTP extends AppCompatActivity {
         }
     }
 
+    public void returnSignup3(View view) {
+        onBackPressed();
+    }
 }

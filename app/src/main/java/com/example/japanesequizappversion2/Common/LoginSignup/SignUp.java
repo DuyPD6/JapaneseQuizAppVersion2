@@ -1,10 +1,5 @@
 package com.example.japanesequizappversion2.Common.LoginSignup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.japanesequizappversion2.R;
-import com.google.android.material.textfield.TextInputLayout;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,11 +10,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.japanesequizappversion2.R;
+import com.google.android.material.textfield.TextInputLayout;
+
 public class SignUp extends AppCompatActivity {
     ImageView btnBack;
     Button btnNext, btnLogin;
     TextView textTitle;
     TextInputLayout fullName, userName, email, passWord;
+    String _fullName, _email, _userName, _passWord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +46,10 @@ public class SignUp extends AppCompatActivity {
         }
 
         Intent intent = new Intent(SignUp.this, SignUp2.class);
-        String _fullName = fullName.getEditText().getText().toString();
-        String _email = email.getEditText().getText().toString();
-        String _userName = userName.getEditText().getText().toString();
-        String _passWord = passWord.getEditText().getText().toString();
+        _fullName = fullName.getEditText().getText().toString();
+        _email = email.getEditText().getText().toString();
+        _userName = userName.getEditText().getText().toString();
+        _passWord = passWord.getEditText().getText().toString();
 
         intent.putExtra("fullName", _fullName);
         intent.putExtra("email", _email);
@@ -138,7 +139,15 @@ public class SignUp extends AppCompatActivity {
     }
 
     public void callLoginFromSignUp1(View view) {
-        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View, String>(findViewById(R.id.btn_signup1_login), "transition_login");
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this, pairs);
+        startActivity(intent, options.toBundle());
+    }
+
+    public void returnStartup(View view) {
+        onBackPressed();
         finish();
     }
 }

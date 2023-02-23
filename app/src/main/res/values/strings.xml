@@ -18,6 +18,8 @@
     <string name="app_slogan">Hellooooooooo</string>
     <string name="app_heading">Japanese</string>
     <string name="sign_up">Sign Up</string>
+    <string name="recognize">Recognize</string>
+    <string name="clear">Clear</string>
     <string name="about_us">About Us</string>
     <string name="full_name">Full Name</string>
     <string name="user_name">Username</string>
@@ -35,7 +37,7 @@
     <string name="using_sms">Using SMS Method</string>
     <string name="sms_number">+84 999 999 999</string>
     <string name="new_credentials">new credentials</string>
-    <string name="password_updated">Password Updated</string>
+    <string name="password_updated">Thank you!</string>
     <string name="new_credentials_detail">Verified successfully \nSet you new password</string>
     <string name="reset_method_detail">Select kind of method you want to reset your password</string>
 </resources>

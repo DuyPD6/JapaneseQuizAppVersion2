@@ -1,7 +1,5 @@
 package com.example.japanesequizappversion2.Common.LoginSignup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +14,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.japanesequizappversion2.R;
 
 import java.util.Calendar;
@@ -27,7 +27,7 @@ public class SignUp2 extends AppCompatActivity {
     RadioGroup radioGroup;
     RadioButton selectedGender;
     DatePicker datePicker;
-
+    String _gender, _date, _fullName, _email, _userName,_passWord;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,12 +51,12 @@ public class SignUp2 extends AppCompatActivity {
         int month = datePicker.getMonth();
         int year = datePicker.getYear();
 
-        String _gender = selectedGender.getText().toString();
-        String _date = day + "/" + month + "/" + year;
-        String _fullName = getIntent().getStringExtra("fullName");
-        String _email = getIntent().getStringExtra("email");
-        String _userName = getIntent().getStringExtra("userName");
-        String _passWord = getIntent().getStringExtra("passWord");
+        _gender= selectedGender.getText().toString();
+        _date = day + "/" + month + "/" + year;
+        _fullName = getIntent().getStringExtra("fullName");
+        _email = getIntent().getStringExtra("email");
+        _userName = getIntent().getStringExtra("userName");
+        _passWord = getIntent().getStringExtra("passWord");
 
         Intent intent = new Intent(getApplicationContext(), SignUp3.class);
 
@@ -97,5 +97,9 @@ public class SignUp2 extends AppCompatActivity {
             return false;
         } else
             return true;
+    }
+
+    public void returnSignup1(View view) {
+        onBackPressed();
     }
 }

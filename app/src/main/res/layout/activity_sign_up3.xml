@@ -15,6 +15,7 @@
         android:orientation="vertical">
 
         <ImageView
+            android:onClick="returnSignup2"
             android:id="@+id/btn_signup3_back"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"

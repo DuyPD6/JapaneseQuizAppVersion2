@@ -1,7 +1,5 @@
 package com.example.japanesequizappversion2.Common.LoginSignup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +7,8 @@ import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ScrollView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.japanesequizappversion2.R;
 import com.google.android.material.textfield.TextInputLayout;
@@ -57,6 +57,7 @@ public class SignUp3 extends AppCompatActivity {
         intent.putExtra("date", _date);
         intent.putExtra("gender", _gender);
         intent.putExtra("phoneNo", _phoneNo);
+        intent.putExtra("whatToDo", "newUser");
 
         Pair[] pairs = new Pair[1];
         pairs[0] = new Pair<View, String>(scrollView, "transition_OTP_screen");
@@ -78,5 +79,9 @@ public class SignUp3 extends AppCompatActivity {
             phoneNumber.setErrorEnabled(false);
             return true;
         }
+    }
+
+    public void returnSignup2(View view) {
+        onBackPressed();
     }
 }

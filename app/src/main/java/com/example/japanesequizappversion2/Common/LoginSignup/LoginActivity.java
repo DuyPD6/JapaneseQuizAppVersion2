@@ -189,4 +189,8 @@ public class LoginActivity extends AppCompatActivity {
     public void callForgetPassword(View view) {
         startActivity(new Intent(getApplicationContext(), ForgetPassword.class));
     }
+
+    public void returnStartup(View view){
+        onBackPressed();
+    }
 }

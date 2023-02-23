@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.japanesequizappversion2.R;
 
-public class StudyCategoryActivity extends AppCompatActivity {
+public class TrainingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_study_category);
+        setContentView(R.layout.activity_training);
     }
 }
