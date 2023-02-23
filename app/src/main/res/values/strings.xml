@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">JapaneseQuizAppVersion2</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="app_name">Learning Japanese Application</string>
+    <string name="title_activity_login">Login</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -15,7 +15,7 @@
     <string name="remember_me">Remember Me</string>
     <string name="forget_password">Forget Password</string>
     <string name="create_account">Create Account</string>
-    <string name="app_slogan">Hellooooooooo</string>
+    <string name="app_slogan">Japanese Is Easy</string>
     <string name="app_heading">Japanese</string>
     <string name="sign_up">Sign Up</string>
     <string name="recognize">Recognize</string>
@@ -33,11 +33,24 @@
     <string name="enter_email">Enter Email</string>reset_method
     <string name="forget_password_detail">Provide your account\'s username to reset your password</string>
     <string name="reset_method">Choose Reset Method</string>
-    <string name="mail_address">abcd@gmail.com</string>
+    <string name="mail_address" translatable="false">abcd@gmail.com</string>
     <string name="using_sms">Using SMS Method</string>
-    <string name="sms_number">+84 999 999 999</string>
+    <string name="sms_number" translatable="false">+84 999 999 999</string>
     <string name="new_credentials">new credentials</string>
     <string name="password_updated">Thank you!</string>
     <string name="new_credentials_detail">Verified successfully \nSet you new password</string>
     <string name="reset_method_detail">Select kind of method you want to reset your password</string>
+    <string name="handwriting">Handwriting\n Training</string>
+    <string name="practice">Practice \nFor exams</string>
+    <string name="kanamoji">Kanamoji</string>
+    <string name="study_dekiru">Study Dekiru</string>
+    <string name="hiragana">Hiragana</string>
+    <string name="katakana">Katakana</string>
+    <string name="japanese_1">Japanese 1</string>
+    <string name="japanese_2">Japanese 2</string>
+    <string name="japanese_3">Japanese 3</string>
+    <string name="do_exams">Do exams</string>
+    <string name="verify_code">Verify code</string>
+
+
 </resources>

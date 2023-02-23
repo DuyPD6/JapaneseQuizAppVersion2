@@ -71,7 +71,7 @@
             android:layout_marginTop="@dimen/_30sdp"
             android:background="@color/design_default_color_primary"
             android:onClick="callNextScreenFromOTP"
-            android:text="Verify Code"
+            android:text="@string/verify_code"
             android:textColor="@color/black">
 
         </Button>
