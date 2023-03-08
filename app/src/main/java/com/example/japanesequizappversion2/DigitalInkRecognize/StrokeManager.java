@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.Task;
 import com.google.mlkit.common.MlKitException;
 import com.google.mlkit.common.model.DownloadConditions;
 import com.google.mlkit.common.model.RemoteModelManager;
@@ -14,6 +15,10 @@ import com.google.mlkit.vision.digitalink.DigitalInkRecognitionModelIdentifier;
 import com.google.mlkit.vision.digitalink.DigitalInkRecognizer;
 import com.google.mlkit.vision.digitalink.DigitalInkRecognizerOptions;
 import com.google.mlkit.vision.digitalink.Ink;
+import com.google.mlkit.vision.digitalink.RecognitionCandidate;
+import com.google.mlkit.vision.digitalink.RecognitionResult;
+
+import java.util.List;
 
 public class StrokeManager {
     private static DigitalInkRecognitionModel model = null;
@@ -67,7 +72,11 @@ public class StrokeManager {
         Ink ink = inkBuilder.build();
         recognizer.recognize(ink)
                 .addOnSuccessListener(result -> {
-                    textView.setText(result.getCandidates().get(0).getText()+", Accuracy: ");
+                    RecognitionCandidate candidate = result.getCandidates().get(0);
+                    String recognizedText = candidate.getText();
+                    Float score = candidate.getScore();
+                    String textWithScore = recognizedText + ", Accuracy: " + (score != null ? score.floatValue() : "N/A");
+                    textView.setText(textWithScore);
                 })
                 .addOnFailureListener(e -> {
                     Log.e(ContentValues.TAG, "Error during recognition: " + e);

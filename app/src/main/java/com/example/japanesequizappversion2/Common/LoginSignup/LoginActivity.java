@@ -66,8 +66,8 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 //        progressBar.setVisibility(View.VISIBLE);
-        String _userName = userName.getEditText().getText().toString();
-        String _passWord = passWord.getEditText().getText().toString();
+        String _userName = userName.getEditText().getText().toString().trim();
+        String _passWord = passWord.getEditText().getText().toString().trim();
 
         if (rememberMe.isChecked()) {
             SessionManager sessionManager = new SessionManager(LoginActivity.this, SessionManager.SESSION_REMEMBERME);
